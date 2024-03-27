@@ -81,9 +81,12 @@ def clear_folder(folder_path):
             shutil.rmtree(item_path)
 
 def process_pdb(pdb_code):
+    os.chdir('PDB')
     download_pdb(pdb_code)
     extract_ligands_to_smi(pdb_code)
     clear_output(wait=True)
     visualize_smiles_from_files(pdb_code)
-    clear_folder("/content/PDB")
+    os.chdir(./)
+    clear_folder('PDB')
+    
 
